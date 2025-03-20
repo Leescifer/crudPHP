@@ -29,8 +29,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Information</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Informations</title>
 </head>
 <body class="bg-gray-900 text-white flex flex-col items-center py-10 min-h-screen">
 
@@ -89,6 +88,6 @@ $result = $conn->query($sql);
         document.getElementById('delete-modal').classList.add('hidden');
     }
 </script>
-
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

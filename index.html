@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Student Data</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white animate-fade-in">
+
+    <div class="flex items-center justify-center mb-2 ">
+        <img src="./images/spin.png" alt="spin-img" 
+             class="w-24 h-24 rounded-full animate-spin">
+    </div>
 
   
-    <h1 class="text-4xl font-extrabold text-center mb-8 opacity-0 animate-fade-in">
-        Welcome to ANQUEROS BASIC CRUD
+    <h1 class="text-6xl font-bold text-center mb-8 opacity-0 animate-fade-in">
+        Welcome to <span class="text-blue-800"> ANQUERO'S</span> Basic CRUD
     </h1>
 
 
-    <button class="bg-blue-600 px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105 hover:bg-black">
+    <button class="bg-blue-600 px-8 py-4 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105 hover:bg-black">
         <a href="signup.php">Get Started</a>
     </button>
 
