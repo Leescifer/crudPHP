@@ -1,0 +1,4 @@
+create ANQUERO 
+USE     ""
+
+CREATE TABLE students_info(id int not null primary_key, first_name varchar(55), last_name varchar(55), age int not null, gender varchar(55), password varchar(55))
