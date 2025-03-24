@@ -34,7 +34,7 @@ $result = $conn->query($sql);
 <body class="bg-gray-900 text-white flex flex-col items-center py-10 min-h-screen">
 
 <h1 class="text-3xl font-bold mb-6">Student List</h1>
-<a href="signup.php" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition mb-4">Add Student</a>
+<a href="signup.php" class="mr-[48rem] bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition mb-4">Add Student</a>
 
 <div class="overflow-x-auto w-full max-w-4xl">
     <table class="w-full bg-gray-800 shadow-lg rounded-lg">
@@ -65,6 +65,13 @@ $result = $conn->query($sql);
         </tbody>
     </table>
 </div>
+
+<section class="text-gray-200 text-xl mt-6">
+    Don't have an account yet?
+        <a href="signup.php" class="text-blue-500 hover:underline">
+        SignUp
+        </a>
+</section>
 
 <!-- Delete Confirmation Modal -->
 <div id="delete-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">

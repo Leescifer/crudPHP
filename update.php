@@ -12,6 +12,7 @@ $result = $conn->query($sql);
 $student = $result->fetch_assoc();
 
 $updated = false;
+$goingBack = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST['first_name'];
@@ -42,6 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if ($updated): ?>
     <div id="successModal" class="fixed top-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
         Updated Successfully
+    </div>
+<?php endif; ?>
+
+<?php if ($goingBack): ?>
+    <div id="backModal" class="fixed top-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
+        Going back to tables
     </div>
 <?php endif; ?>
 
@@ -79,23 +86,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Update</button>
-        <button class="w-full bg-black text-white py-2 rounded-lg hover:bg-blue-700 transition">
-            <a href="table.php">Cancel</a>
-        </button>
+        
+        <button type="button" class="w-full bg-black text-white py-2 rounded-lg hover:bg-blue-700 transition" id="cancel">Cancel</button>
     </form>
 </div>
 
-
 <script>
-        function hideModal() {
-            setTimeout(() => {
-                document.getElementById('successModal').classList.add('hidden');
-                window.location.href = 'table.php';
-            }, 1000);
-        }
+    function hideModal() {
+        setTimeout(() => {
+            const modal = document.getElementById('successModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+            window.location.href = 'table.php';
+        }, 1000);
+    }
 
+    if (document.getElementById('successModal')) {
         hideModal();
-    </script>
+    }
+
+    document.getElementById('cancel').addEventListener('click', function() {
+        const backModal = document.createElement('div');
+        backModal.id = 'backModal';
+        backModal.className = 'fixed top-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg';
+        backModal.innerText = 'Going back to tables';
+        document.body.appendChild(backModal);
+        
+        setTimeout(() => {
+            window.location.href = 'table.php';
+        }, 500);
+    });
+</script>
 
 </body>
 </html>

@@ -1,22 +1,28 @@
 <?php 
-
+//Inluce DATABASE Connection
 require_once './db/db.php';
 session_start();
 
+//Initialize the modal to false
 $signup_success = false;
 
+//Checks if the request method is POST.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    //Gets data from the submitted form
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $password = $_POST['password'];
 
+    //Stored securely instead of in plaintext.
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
+ 
+    //SQL query to insert into students_info table
     $sql = "INSERT INTO students_info (first_name, last_name, age, gender, password) VALUES (?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
+
     $stmt->bind_param("ssiss", $first_name, $last_name, $age, $gender, $hashed_password);
 
     if ($stmt->execute()) {
@@ -85,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" id="password" name="password" required class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600">
         </div>
 
-        <button type="submit" class="w-full bg-black text-white py-2 rounded hover:bg-gray-700 transition">Sign Up</button>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-900 transition">Sign Up</button>
     </form>
 </div>
 
