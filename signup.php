@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php endif; ?>
 
 <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-    <h1 class="text-2xl font-bold text-center mb-6">Sign Up</h1>
+    <h1 class="text-2xl font-bold text-center mb-6">Sign Up</h1> 
     <form method="POST" class="space-y-4">
         <div>
             <label for="first_name" class="block text-sm font-medium">First Name:</label>

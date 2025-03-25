@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error updating record: " . $conn->error;
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -58,28 +59,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" class="space-y-4">
         <div>
             <label for="first_name" class="block text-sm font-medium">First Name:</label>
-            <input type="text" id="first_name" name="first_name" value="<?= htmlspecialchars($student['first_name']) ?>" required class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+            <input type="text" id="first_name" name="first_name" value="<?= $student['first_name'] ?>" required 
+            class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
         </div>
 
         <div>
             <label for="last_name" class="block text-sm font-medium">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" value="<?= htmlspecialchars($student['last_name']) ?>" required class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+            <input type="text" id="last_name" name="last_name" value="<?= $student['last_name'] ?>?>" required 
+            class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
         </div>
 
         <div>
             <label for="age" class="block text-sm font-medium">Age:</label>
-            <input type="number" id="age" name="age" value="<?= htmlspecialchars($student['age']) ?>" required class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+            <input type="number" id="age" name="age" value="<?= $student['age'] ?>" required 
+            class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
         </div>
 
         <div>
             <label class="block text-sm font-medium">Gender:</label>
             <div class="flex gap-4">
                 <label class="flex items-center gap-2">
-                    <input type="radio" id="male" name="gender" value="male" <?= ($student['gender'] === 'male') ? 'checked' : '' ?> required class="form-radio">
+                    <input type="radio" id="male" name="gender" 
+                    value="male" <?= ($student['gender'] === 'male') ? 'checked' : '' ?> required class="form-radio">
                     Male
                 </label>
                 <label class="flex items-center gap-2">
-                    <input type="radio" id="female" name="gender" value="female" <?= ($student['gender'] === 'female') ? 'checked' : '' ?> required class="form-radio">
+                    <input type="radio" id="female" name="gender" 
+                    value="female" <?= ($student['gender'] === 'female') ? 'checked' : '' ?> required class="form-radio">
                     Female
                 </label>
             </div>

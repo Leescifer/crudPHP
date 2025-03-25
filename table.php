@@ -17,6 +17,8 @@ if (isset($_GET['delete_id'])) {
     } else {
         echo "Error: " . $conn->error;
     }
+
+    $stmt->close();
 }
 
 // Fetch students who are not deleted
